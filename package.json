@@ -5,12 +5,16 @@
   "dependencies": {
     "@rematch/core": "^0.6.0",
     "history": "^4.7.2",
+    "immutability-helper": "^2.6.6",
+    "material-ui": "^1.0.0-beta.43",
+    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.2.6"
   },
   "scripts": {
     "start": "react-scripts start",

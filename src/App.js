@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import RouteWithSubRoutes from './components/RouteWithSubRoutes';
 import Register from './pages/register';
+import Layout from "./layouts/layout";
 
 const pageList = [
   { component: Register, path: '/' },
@@ -11,8 +11,8 @@ const pageList = [
 
 const App = () => (
   <div>
-    {/* <Header /> */}
-    {/* <BodyPageStyled> */}
+    <Layout>
+      {/* <BodyPageStyled> */}
       <Switch>
         {
           pageList.map(({ exact, ...item }) => (
@@ -20,7 +20,9 @@ const App = () => (
           ))
         }
       </Switch>
-    {/* </BodyPageStyled> */}
+      {/* </BodyPageStyled> */}
+    </Layout>
+
     {/* <Footer /> */}
     {/* <Alert stack={{limit: 3}} effect="jelly"/> */}
   </div>
