@@ -7,24 +7,24 @@
 // AWS Mobile Hub Project Constants
 const awsmobile = {
     'aws_app_analytics': 'enable',
-    'aws_cognito_identity_pool_id': 'us-west-2:34cb1061-4db8-4bfa-90d3-ffb9472b6aa6',
+    'aws_cognito_identity_pool_id': 'us-west-2:e73d78c1-c86d-4f25-8cea-308ffbb88191',
     'aws_cognito_region': 'us-west-2',
     'aws_content_delivery': 'enable',
-    'aws_content_delivery_bucket': 'kazanfe-hosting-mobilehub-2139429094',
+    'aws_content_delivery_bucket': 'test-hosting-mobilehub-166220279',
     'aws_content_delivery_bucket_region': 'us-west-2',
     'aws_content_delivery_cloudfront': 'enable',
-    'aws_content_delivery_cloudfront_domain': 'd1h7g29ai179r1.cloudfront.net',
-    'aws_mobile_analytics_app_id': 'bf364251e7584fdb8c587fe649cd1a3b',
+    'aws_content_delivery_cloudfront_domain': 'd14uqinxcy9b1w.cloudfront.net',
+    'aws_mobile_analytics_app_id': '96d1c3b05b19462eaaefe0a34bbc4336',
     'aws_mobile_analytics_app_region': 'us-east-1',
-    'aws_project_id': 'ab68ce68-b44a-4585-8914-4aa2d6f1db6a',
-    'aws_project_name': 'kazan-fe-2018-04-26-13-20-25',
+    'aws_project_id': '69f2c295-cbda-4c35-8202-c5067651f72d',
+    'aws_project_name': 'test',
     'aws_project_region': 'us-west-2',
-    'aws_resource_name_prefix': 'kazanfe-mobilehub-2139429094',
+    'aws_resource_name_prefix': 'test-mobilehub-166220279',
     'aws_sign_in_enabled': 'enable',
     'aws_user_pools': 'enable',
-    'aws_user_pools_id': 'us-west-2_gCZ5ooN1l',
+    'aws_user_pools_id': 'us-west-2_rEOLylnFL',
     'aws_user_pools_mfa_type': 'ON',
-    'aws_user_pools_web_client_id': '4ofl13emd1bs98s5iqlla7pu7g',
+    'aws_user_pools_web_client_id': '38tk5s767rj1tseqeuqqslupgf',
 }
 
 export default awsmobile;

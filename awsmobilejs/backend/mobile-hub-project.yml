@@ -27,5 +27,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-name: kazan-fe-2018-04-26-13-20-25
+name: test
 region: us-west-2
