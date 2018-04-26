@@ -3,11 +3,8 @@ import { Switch } from 'react-router-dom';
 import './App.css';
 import RouteWithSubRoutes from './components/RouteWithSubRoutes';
 import Register from './pages/register';
-<<<<<<< HEAD
 import { withAuthenticator } from 'aws-amplify-react';
-=======
 import Layout from "./layouts/layout";
->>>>>>> 2d155ef58462298794477c98d21728398c67837f
 
 const pageList = [
   { component: Register, path: '/' },
