@@ -27,5 +27,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-name: test
+name: test-kanza
 region: us-west-2
