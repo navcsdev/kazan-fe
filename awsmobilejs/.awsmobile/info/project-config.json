@@ -1,0 +1,6 @@
+{
+	"SourceDir": "src",
+	"DistributionDir": "build",
+	"BuildCommand": "react-scripts build",
+	"StartCommand": "react-scripts start"
+}

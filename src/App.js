@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import RouteWithSubRoutes from './components/RouteWithSubRoutes';
 import Register from './pages/register';
+import { withAuthenticator } from 'aws-amplify-react';
 
 const pageList = [
   { component: Register, path: '/' },
@@ -26,4 +27,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default withAuthenticator(App);

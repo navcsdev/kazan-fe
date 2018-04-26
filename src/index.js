@@ -7,6 +7,8 @@ import { init } from '@rematch/core';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware, routerReducer } from 'react-router-redux';
 import registerServiceWorker from './registerServiceWorker';
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
 
 const history = createHistory();
 
@@ -15,6 +17,8 @@ const store = init({
     middlewares:[routerMiddleware(history)]
   }
 });
+
+Amplify.configure(aws_exports);
 
 ReactDOM.render(
   <Provider store={store}>
