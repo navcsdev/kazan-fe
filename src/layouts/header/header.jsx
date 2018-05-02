@@ -5,8 +5,22 @@ import IconButton from "material-ui/IconButton";
 import MenuIcon from 'material-ui-icons/Menu';
 import {ToolBarHeader, TypographyHeader} from "./styled";
 import PopupSignUp from "../../popups/account/PopupSignUp";
+import {Auth} from 'aws-amplify';
 
 export default class Header extends PureComponent {
+    signOut = async(e) => {
+      e.preventDefault();
+      Auth.signOut()
+          .then(
+              sessionStorage.setItem('isLoggedIn', false),
+              this.setState(() => {
+                  return {
+                      logOut: true
+                  }
+              })
+          )
+          .catch(err => console.log(err));    
+    }
     render() {
       return(
         <AppBar>
@@ -17,8 +31,7 @@ export default class Header extends PureComponent {
             <TypographyHeader variant="title" color="inherit">
               KAZAN
             </TypographyHeader>
-            <Button color="inherit">Sign-in</Button>
-            <PopupSignUp color="inherit">Sign-up</PopupSignUp>
+            <Button onClick={this.signOut}>Logout</Button>
           </ToolBarHeader>
         </AppBar>
       )

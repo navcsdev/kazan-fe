@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import { Switch } from 'react-router-dom';
-import './App.css';
-import RouteWithSubRoutes from './components/RouteWithSubRoutes';
-import Register from './pages/register';
-import { withAuthenticator } from 'aws-amplify-react';
+import React from 'react';
 import Layout from "./layouts/layout";
+import Login from './auth/login'
+import Register from './auth/register'
+import { Switch } from 'react-router-dom';
+import Home from './home/index';
+import RouteWithSubRoutes from './components/RouteWithSubRoutes'
 
 const pageList = [
-  { component: Register, path: '/' },
+  { component: Login, path: '/' },
+  { component: Login, path: '/login' },
+  { component: Register, path: '/register'},
+  { component: Home, path: '/home' }
 ];
 
 const App = () => (
@@ -28,5 +31,4 @@ const App = () => (
     {/* <Alert stack={{limit: 3}} effect="jelly"/> */}
   </div>
 );
-
-export default withAuthenticator(App);
+export default App;

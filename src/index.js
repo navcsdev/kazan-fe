@@ -5,10 +5,13 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { init } from '@rematch/core';
 import createHistory from 'history/createBrowserHistory';
-import { ConnectedRouter, routerMiddleware, routerReducer } from 'react-router-redux';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import registerServiceWorker from './registerServiceWorker';
+import awsmobile from './aws-exports';
 import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
+
+
+Amplify.configure(awsmobile);
 
 const history = createHistory();
 
@@ -18,7 +21,7 @@ const store = init({
   }
 });
 
-Amplify.configure(aws_exports);
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Redirect, Route} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 // import { isUserLoggedIn, hasEosAccount } from '../site-user/common/AppUtils'
 
 const RouteWithSubRoutes = (route) => {
