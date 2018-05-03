@@ -3,10 +3,9 @@ import update from 'immutability-helper';
 import Button from "material-ui/es/Button";
 import TextField from "material-ui/TextField";
 import Grid from "material-ui/es/Grid";
-import awsmobile from '../aws-exports'
 import {Auth} from 'aws-amplify';
 import {Redirect} from 'react-router-dom'
-
+import { FormHelperText } from 'material-ui/Form';
 export default class Register extends PureComponent {
     constructor(props) {
         super(props);
@@ -30,7 +29,7 @@ export default class Register extends PureComponent {
     }
 
     handleSubmit = e => {
-        console.log(e.target);
+        e.preventDefault();
         let username = this.state.username.trim();
         let email = this.state.email.trim();
         let password = this.state.password.trim();
@@ -38,18 +37,14 @@ export default class Register extends PureComponent {
         let telegramUsername = this.state.telegramUsername.trim();
 
         Auth.signUp(username, password, email, phone, telegramUsername)
-            .then(
-                this.setState(() => {
-                return {
-                    enterAuth: true
-                }
-                })
+            .then(data => {
+                console.log(data);
+                this.setState(prevState => update(prevState, {enterAuth: {$set: true}}))
+            }
             )
             .catch(err => {
-                console.log(err)
+                this.setState(prevState => update(prevState, {invalidFormDataMessage: {$set: err.message}}))
             })
-
-        this.setState(prevState => update(prevState, e.target))
     };
     
     handleSubmitVerification = e => {
@@ -59,16 +54,11 @@ export default class Register extends PureComponent {
 
     Auth.confirmSignUp(username, verificationCode)
         .then(
-            this.setState(() => {
-            return{
-                authSuccess: true
-            }
-            })
+            this.setState(prevState => update(prevState, {authSuccess: {$set: true}}))
         )
-        .catch(
-            this.setState(() => {
-            invalidCodeMessage: 'invalid verification code'
-            })
+        .catch(err =>
+            console.log(err)
+            // this.setState(prevState => update(prevState, {invalidCodeMessage: {$set: 'invalid verification code'}}))
         )
     }
     
@@ -92,9 +82,6 @@ export default class Register extends PureComponent {
     handleOnChange = e => {
         let name = e.target.name;
         let value = e.target.value;
-        console.log(this.state.username);
-        console.log(name);
-        console.log(value)
         this.setState(prevState => update(prevState, {[name]: {$set: value}}))
     }
     
@@ -103,19 +90,12 @@ export default class Register extends PureComponent {
         const verificationCode = this.state.code;
         const username = this.state.username;
         Auth.confirmSignUp(username, verificationCode)
-            .then(
-                this.setState(() => {
-                    return {
-                        authSuccess: true
-                    }
-                })
-            )
+            .then( data => {
+                console.log(data);
+                this.setState(prevState => update(prevState, {authSuccess: {$set: true}}))
+            })
             .catch(
-                this.setState(() => {
-                    return {
-                        invalidCodeMessage: 'Invalid Verification Code'
-                    }
-                })
+                this.setState(prevState => update(prevState, {invalidCodeMessage: {$set: 'Invalid Verification Code'}}))
             )
     }
 
@@ -152,9 +132,10 @@ export default class Register extends PureComponent {
             enableResend,
             invalidCodeMessage,
             invalidFormDataMessage } = this.state;
+         console.log(this.state);   
         return(
             <div>
-                {!code && !authSuccess && (
+                {!authSuccess && !enterAuth && (
                     <form onSubmit={this.handleSubmit}>
                         <Grid container spacing={8}>
                             <Grid item lg={12}>
@@ -210,16 +191,17 @@ export default class Register extends PureComponent {
                             </Grid>
                             <Grid item lg={12} alignContent="right">
                             <Button type="submit" color="primary" onClick={this.handleSubmit}>Register</Button>
+                            {invalidFormDataMessage && (<FormHelperText id="name-error-text">{invalidFormDataMessage}</FormHelperText>)}
                             </Grid>
                         </Grid>
                     </form>
                 )}
-                {enterAuth && !authSuccess (
+                {enterAuth && !authSuccess && (
                     <Grid container spacing={8}>
                         <Grid item lg={12}>
                             <TextField
                                 fullWidth
-                                name="verificationCode"
+                                name="code"
                                 label="Verification Code"
                                 value={verificationCode}
                                 margin="normal"
@@ -227,13 +209,12 @@ export default class Register extends PureComponent {
                             />
                         </Grid>
                         <Grid item lg={12} alignContent="right">
-                            <Button type="submit" color="primary" onclick={this.handleSubmitVerification}>Confirm</Button>
-                            { !enableResend && <Button fluid loading onClick={this.countDownResendVerificationCode()}>Waiting to resend</Button> }
-                            { enableResend && <Button fluid color="purple" onClick={this.resendVerificationCode}>Resend it!</Button> }
+                            <Button color="primary" onClick={this.handleSubmitVerification}>Confirm</Button>
+                            {invalidCodeMessage && (<FormHelperText id="name-error-text">{invalidCodeMessage}</FormHelperText>)}
                         </Grid>
                     </Grid>
                 )}
-                {authSuccess && (<Redirect to='/Auth/login' />)}
+                {authSuccess && (<Redirect to='/login' />)}
             </div>
         )
     }
