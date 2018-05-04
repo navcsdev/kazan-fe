@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "./layouts/header";
 import Login from './pages/login'
-import Register from './auth/register'
+import Register from './pages/register'
 import { Switch } from 'react-router-dom';
 import Home from './home/index';
 import RouteWithSubRoutes from './components/RouteWithSubRoutes'
