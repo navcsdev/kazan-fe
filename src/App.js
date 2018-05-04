@@ -1,16 +1,17 @@
 import React from 'react';
 import Header from "./layouts/header";
+import Home from './pages/home'
 import Login from './pages/login'
 import Register from './auth/register'
 import { Switch } from 'react-router-dom';
-import Home from './home/index';
+import Verification from './pages/verification'
 import RouteWithSubRoutes from './components/RouteWithSubRoutes'
 
 const pageList = [
   { component: Home, path: '/' },
   { component: Login, path: '/login' },
   { component: Register, path: '/register'},
-  { component: Home, path: '/home' }
+  { component: Verification, path: '/verification' }
 ];
 
 const App = () => (

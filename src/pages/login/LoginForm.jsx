@@ -10,9 +10,9 @@ const renderTextField = ({
   ...custom
 }) => (
   <TextField
-      label={label}
-      {...input}
-      {...custom}
+    label={label}
+    {...input}
+    {...custom}
   />
 )
 
@@ -41,10 +41,6 @@ class LoginForm extends React.PureComponent {
     );
   }
 }
-
-// const LoginForm = (handleSubmit, error, submitting) => (
-  
-// );
 
 export default reduxForm({
   form: 'LoginForm', // a unique identifier for this form

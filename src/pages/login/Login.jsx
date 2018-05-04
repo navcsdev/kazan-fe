@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from "react-redux";
-import update from 'immutability-helper';
 import LoginForm from './LoginForm'
 
 const mapDispatch = ({ login: { loginAsync }}) => ({

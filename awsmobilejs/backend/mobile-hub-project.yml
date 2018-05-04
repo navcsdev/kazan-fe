@@ -15,6 +15,6 @@ features:
     components:
       sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
         attributes:
-          user-pool-id: us-west-2_YSzB91BvM
+          user-pool-id: us-west-2_lyPOdLzes
 name: test-kanza
 region: us-west-2
