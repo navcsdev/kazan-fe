@@ -1,82 +1,71 @@
 import React, { PureComponent } from 'react';
-import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
 import Grid from 'material-ui/Grid'
-import { Container } from './styled';
-
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => (
-  <TextField
-      label={label}
-      {...input}
-      {...custom}
-  />
-)
+import {Container, LoginContent} from '../../styles/form/styled';
+import TextField from '../../components/render-fields/TextField'
 
 class RegisterForm extends PureComponent {
 
   render() {
-    const {handleSubmit, submitting, touched, error} = this.props;
+    const {handleSubmit, error} = this.props;
 
     return (
         <Container>
+          <LoginContent>
             <form onSubmit={handleSubmit}>
-            {error && <strong>{error}</strong>}
-            <Grid container spacing={24}>
-                <Grid item lg={12}>
-                    <Field
-                        fullWidth
-                        name="username"
-                        component={renderTextField}
-                        label="Username"
-                />
+              {error && <strong>{error}</strong>}
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="username"
+                    component={TextField}
+                    label="Username"
+                  />
                 </Grid>
-                <Grid item lg={12}>
-                    <Field
-                        fullWidth
-                        name="password"
-                        component={renderTextField}
-                        label="Password"
-                        type="password"
-                />
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="password"
+                    component={TextField}
+                    label="Password"
+                    type="password"
+                  />
                 </Grid>
-                <Grid item lg={12}>
-                    <Field
-                        fullWidth
-                        name="phoneNumber"
-                        component={renderTextField}
-                        label="Phone number"
-                />
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="phoneNumber"
+                    component={TextField}
+                    label="Phone number"
+                  />
                 </Grid>
-                <Grid item lg={12}>
-                    <Field
-                        fullWidth
-                        name="telegramUsername"
-                        component={renderTextField}
-                        label="Telegram Username"
-                />
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="telegramUsername"
+                    component={TextField}
+                    label="Telegram Username"
+                  />
                 </Grid>
-                <Grid item lg={12}>
-                    <Field
-                        fullWidth
-                        name="email"
-                        component={renderTextField}
-                        label="Email"
-                        type="email"
-                />
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="email"
+                    component={TextField}
+                    label="Email"
+                    type="email"
+                  />
                 </Grid>
-                <Grid item lg={12}>
-                    <Button type="submit" variant="raised" color="primary">
-                        Register
-                    </Button>
+                <Grid item xs={12}>
+                  <Button type="submit" variant="raised" color="primary">
+                    Register
+                  </Button>
                 </Grid>
-            </Grid>
+              </Grid>
             </form>
+          </LoginContent>
         </Container>
     );
   }

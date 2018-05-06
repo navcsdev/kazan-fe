@@ -17,8 +17,8 @@ export default {
     effects: {
         async registerAsync(payload) {
             const {username, email, password, telegramUsername, phoneNumber} = payload;
-            return Auth.signUp({username, password, attributes: {
-                'email': email, 
+            return await Auth.signUp({username, password, attributes: {
+                'email': email,
                 'phone_number': phoneNumber,
                 'nickname': telegramUsername
             }})

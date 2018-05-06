@@ -2,7 +2,8 @@ import React from 'react';
 import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
-import {Container, LoginContent, GridStyled} from "./styled";
+import {Container, LoginContent} from "../../styles/form/styled";
+import {GridStyled} from  "./styled"
 import Grid from "material-ui/es/Grid";
 import Link from "react-router-dom/Link";
 
@@ -49,7 +50,7 @@ class LoginForm extends React.PureComponent {
               <Button type="submit" variant="raised" color="primary">
                 Login
               </Button>
-              <a><Link to="/register"><Button secondary fluid>Create an account</Button></Link></a>
+              <Link to="/register"><Button secondary fluid>Create an account</Button></Link>
             </GridStyled>
           </Grid>
         </form>

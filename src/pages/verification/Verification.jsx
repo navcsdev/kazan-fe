@@ -5,7 +5,7 @@ import Button from 'material-ui/Button';
 
 const mapDispatch = ({ verification: { confirmSignUpAsync, resendSignUpAsync }}) => ({
   confirmSignUpAsync, resendSignUpAsync
-})
+});
 
 class Verification extends React.PureComponent {
 
