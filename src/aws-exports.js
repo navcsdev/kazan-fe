@@ -19,8 +19,8 @@ const awsmobile = {
     'aws_resource_name_prefix': 'testkanza-mobilehub-1152812047',
     'aws_sign_in_enabled': 'enable',
     'aws_user_pools': 'enable',
-    'aws_user_pools_id': 'us-west-2_YSzB91BvM',
-    'aws_user_pools_web_client_id': '5j8b8cag3qfg6dg2u77780kn0v',
+    'aws_user_pools_id': 'us-west-2_lyPOdLzes',
+    'aws_user_pools_web_client_id': '1f9rve9obqmvuikg8hgafof168',
 }
 
 export default awsmobile;

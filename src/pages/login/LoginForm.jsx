@@ -2,6 +2,9 @@ import React from 'react';
 import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
+import {Container, LoginContent, GridStyled} from "./styled";
+import Grid from "material-ui/es/Grid";
+import Link from "react-router-dom/Link";
 
 const renderTextField = ({
   input,
@@ -14,37 +17,47 @@ const renderTextField = ({
     {...input}
     {...custom}
   />
-)
+);
 
 class LoginForm extends React.PureComponent {
 
   render() {
     const {handleSubmit, error, submitting} = this.props;
-
     return (
-      <form onSubmit={handleSubmit}>
-        <Field
-          name="username"
-          component={renderTextField}
-          label="Username"
-        />
-        <Field
-          name="password"
-          component={renderTextField}
-          label="Password"
-          type="password"
-        />
-        <Button type="submit" variant="raised" color="primary">
-          Login
-        </Button>
-      </form>
+      <Container>
+        <LoginContent>
+          <form onSubmit={handleSubmit}>
+          <Grid container spacing={24} >
+            <Grid item xs={12}>
+              <Field
+                fullWidth
+                name="username"
+                component={renderTextField}
+                label="Username"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Field
+                fullWidth
+                name="password"
+                component={renderTextField}
+                label="Password"
+                type="password"
+              />
+            </Grid>
+            <GridStyled item xs={12}>
+              <Button type="submit" variant="raised" color="primary">
+                Login
+              </Button>
+              <a><Link to="/register"><Button secondary fluid>Create an account</Button></Link></a>
+            </GridStyled>
+          </Grid>
+        </form>
+        </LoginContent>
+      </Container>
     );
   }
 }
-
-// const LoginForm = (handleSubmit, error, submitting) => (
-  
-// );
 
 export default reduxForm({
   form: 'LoginForm', // a unique identifier for this form

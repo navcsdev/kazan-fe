@@ -1,21 +1,23 @@
 import React from 'react';
-// import Header from "./layouts/header";
+import Header from "./layouts/header";
+import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
 import { Switch } from 'react-router-dom';
-import Home from './home/index';
+import Verification from './pages/verification'
 import RouteWithSubRoutes from './components/RouteWithSubRoutes'
+import {AppMain} from "./styles/app";
 
 const pageList = [
   { component: Home, path: '/' },
   { component: Login, path: '/login' },
   { component: Register, path: '/register'},
-  { component: Home, path: '/home' }
+  { component: Verification, path: '/verification' }
 ];
 
 const App = () => (
   <div>
-    {/* <Header/> */}
+    <AppMain>
       {/* <BodyPageStyled> */}
       <Switch>
         {
@@ -25,7 +27,7 @@ const App = () => (
         }
       </Switch>
       {/* </BodyPageStyled> */}
-
+    </AppMain>
     {/* <Footer /> */}
     {/* <Alert stack={{limit: 3}} effect="jelly"/> */}
   </div>
