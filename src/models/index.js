@@ -2,5 +2,5 @@
 // export { default as signUp } from './sign-up'
 export { default as verification } from './verification'
 export { default as login } from './login'
-export { default as register } from './Register'
+export { default as register } from './register'
 // export { default as myProfile } from './my-profile'

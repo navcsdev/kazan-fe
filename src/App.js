@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "./layouts/header";
+// import Header from "./layouts/header";
 import Login from './pages/login'
 import Register from './pages/register'
 import { Switch } from 'react-router-dom';
@@ -15,7 +15,7 @@ const pageList = [
 
 const App = () => (
   <div>
-    <Header/>
+    {/* <Header/> */}
       {/* <BodyPageStyled> */}
       <Switch>
         {

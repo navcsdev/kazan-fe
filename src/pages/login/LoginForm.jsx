@@ -10,9 +10,9 @@ const renderTextField = ({
   ...custom
 }) => (
   <TextField
-      label={label}
-      {...input}
-      {...custom}
+    label={label}
+    {...input}
+    {...custom}
   />
 )
 

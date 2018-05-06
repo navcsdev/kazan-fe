@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 
-const mapDispatch = ({ register: { registerAsync }}) => ({registerAsync})
+const mapDispatch = ({ register: { registerAsync }}) => ({
+  registerAsync
+})
 
 class Register extends PureComponent {
   handleSubmit = (data) => {
@@ -17,3 +19,4 @@ class Register extends PureComponent {
 }
 
 export default connect(null, mapDispatch)(Register);
+// export default connect(null, null)(Register);
