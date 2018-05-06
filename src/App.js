@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "./layouts/header";
 import Home from './pages/home'
 import Login from './pages/login'
-import Register from './auth/register'
+import Register from './pages/register'
 import { Switch } from 'react-router-dom';
 import Verification from './pages/verification'
 import RouteWithSubRoutes from './components/RouteWithSubRoutes'

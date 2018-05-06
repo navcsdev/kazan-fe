@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import { reducer as form } from 'redux-form';
 import { init } from '@rematch/core';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
@@ -19,10 +18,7 @@ const history = createHistory();
 const store = init({
   models,
   redux: {
-    middlewares:[routerMiddleware(history)],
-    reducers: {
-      form
-    },
+    middlewares:[routerMiddleware(history)]
   }
 });
 
