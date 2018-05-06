@@ -6,6 +6,7 @@ import Register from './auth/register'
 import { Switch } from 'react-router-dom';
 import Verification from './pages/verification'
 import RouteWithSubRoutes from './components/RouteWithSubRoutes'
+import {AppMain} from "./styles/app";
 
 const pageList = [
   { component: Home, path: '/' },
@@ -16,7 +17,7 @@ const pageList = [
 
 const App = () => (
   <div>
-    <Header/>
+    <AppMain>
       {/* <BodyPageStyled> */}
       <Switch>
         {
@@ -26,7 +27,7 @@ const App = () => (
         }
       </Switch>
       {/* </BodyPageStyled> */}
-
+    </AppMain>
     {/* <Footer /> */}
     {/* <Alert stack={{limit: 3}} effect="jelly"/> */}
   </div>
