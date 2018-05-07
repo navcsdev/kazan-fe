@@ -1,5 +1,5 @@
 import { Auth } from 'aws-amplify';
-import { dispatch } from '@rematch/core'
+import { dispatch } from '@rematch/core';
 import {push} from "react-router-redux";
 import {SubmissionError} from "redux-form";
 
@@ -11,7 +11,7 @@ export default {
 
   },
   effects: {
-    async loginAsync(payload) {            
+    async loginAsync(payload) {
       const {username, password} = payload;
       Auth.signIn(username, password)
         .then(() => dispatch(push('/register')))

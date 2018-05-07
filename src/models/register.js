@@ -23,14 +23,14 @@ export default {
                 'nickname': telegramUsername
             }})
                 .then(resp => {
-                    dispatch.store(payload);
-                    dispatch.verification.setCredentials({
+                    this.store(payload);
+                    dispatch.verification.setCredential({
                         username,
                         password
                     });
                     dispatch(push('/verification'))
                 })
-                .catch(err => { throw new SubmissionError({_error: err.message}) })
+                .catch(err => {console.log(err); throw new SubmissionError({_error: err.message}) })
         }
     }
 }

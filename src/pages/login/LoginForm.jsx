@@ -4,7 +4,7 @@ import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
 import {Container, LoginContent} from "../../styles/form/styled";
 import {GridStyled} from  "./styled"
-import Grid from "material-ui/es/Grid";
+import Grid from "material-ui/Grid";
 import Link from "react-router-dom/Link";
 
 const renderTextField = ({

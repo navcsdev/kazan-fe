@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
 import Grid from 'material-ui/Grid'
-import {Container, LoginContent} from '../../styles/form/styled';
+import {Container, Error, GridStyled, LoginContent} from '../../styles/form/styled';
 import TextField from '../../components/render-fields/TextField'
 
 class RegisterForm extends PureComponent {
@@ -14,7 +14,7 @@ class RegisterForm extends PureComponent {
         <Container>
           <LoginContent>
             <form onSubmit={handleSubmit}>
-              {error && <strong>{error}</strong>}
+
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Field
@@ -58,11 +58,12 @@ class RegisterForm extends PureComponent {
                     type="email"
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <GridStyled item xs={12}>
                   <Button type="submit" variant="raised" color="primary">
                     Register
                   </Button>
-                </Grid>
+                  {error && <Error>{error}</Error>}
+                </GridStyled>
               </Grid>
             </form>
           </LoginContent>
