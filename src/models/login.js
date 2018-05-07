@@ -11,23 +11,27 @@ export default {
 
   },
   effects: {
-    async loginAsync(payload) {            
+    async loginAsync(payload) {      
       const {username, password} = payload;
-      Auth.signIn(username, password)
-        .then(() => dispatch(push('/register')))
-        .catch(err => {
-          if (err.code === 'UserNotConfirmedException') {
-            dispatch.verification.setCredential({
-              username,
-              password
-            });
-            dispatch(push('/verification'));
-          } else {
-            throw new SubmissionError({
-              _error: err.message
-            })
-          }
-        })
+      const {isUserLoggedIn, setUsername} = dispatch.app;
+      try {
+        const data = await Auth.signIn(username, password);
+        isUserLoggedIn(true);
+        setUsername(data.username);
+        dispatch(push('/'));
+      } catch(err) {
+        if (err.code === 'UserNotConfirmedException') {
+          dispatch.verification.setCredential({
+            username,
+            password
+          });
+          dispatch(push('/verification'));
+        } else {
+          throw new SubmissionError({
+            _error: err.message
+          })
+        }
+      }
     }
   }
 }

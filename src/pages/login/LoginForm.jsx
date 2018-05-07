@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
+import {Default as DefaultButton} from "../../styles/button";
 import { Field, reduxForm } from 'redux-form'
 import {Container, LoginContent, GridStyled} from "./styled";
 import Grid from "material-ui/es/Grid";
@@ -46,10 +47,12 @@ class LoginForm extends React.PureComponent {
               />
             </Grid>
             <GridStyled item xs={12}>
-              <Button type="submit" variant="raised" color="primary">
+              <DefaultButton type="submit" loading={submitting} variant="raised" color="primary">
                 Login
-              </Button>
-              <a><Link to="/register"><Button secondary fluid>Create an account</Button></Link></a>
+              </DefaultButton>
+              <Link to="/register">
+                <DefaultButton color="secondary">SIGN UP</DefaultButton>
+              </Link>
             </GridStyled>
           </Grid>
         </form>
