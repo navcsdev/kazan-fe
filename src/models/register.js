@@ -17,20 +17,20 @@ export default {
     effects: {
         async registerAsync(payload) {
             const {username, email, password, telegramUsername, phoneNumber} = payload;
-            return Auth.signUp({username, password, attributes: {
-                'email': email, 
+            return await Auth.signUp({username, password, attributes: {
+                'email': email,
                 'phone_number': phoneNumber,
                 'nickname': telegramUsername
             }})
                 .then(resp => {
-                    dispatch.store(payload);
-                    dispatch.verification.setCredentials({
+                    this.store(payload);
+                    dispatch.verification.setCredential({
                         username,
                         password
                     });
                     dispatch(push('/verification'))
                 })
-                .catch(err => { throw new SubmissionError({_error: err.message}) })
+                .catch(err => {console.log(err); throw new SubmissionError({_error: err.message}) })
         }
     }
 }

@@ -3,8 +3,9 @@ import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
 import {Default as DefaultButton} from "../../styles/button";
 import { Field, reduxForm } from 'redux-form'
-import {Container, LoginContent, GridStyled} from "./styled";
-import Grid from "material-ui/es/Grid";
+import {Container, LoginContent} from "../../styles/form/styled";
+import {GridStyled} from  "./styled"
+import Grid from "material-ui/Grid";
 import Link from "react-router-dom/Link";
 
 const renderTextField = ({
@@ -50,9 +51,7 @@ class LoginForm extends React.PureComponent {
               <DefaultButton type="submit" loading={submitting} variant="raised" color="primary">
                 Login
               </DefaultButton>
-              <Link to="/register">
-                <DefaultButton color="secondary">SIGN UP</DefaultButton>
-              </Link>
+              <Link to="/register"><Button secondary fluid>Create an account</Button></Link>
             </GridStyled>
           </Grid>
         </form>
