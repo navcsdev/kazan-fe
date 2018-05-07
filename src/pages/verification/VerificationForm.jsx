@@ -1,14 +1,9 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-<<<<<<< HEAD
-import { Field, reduxForm } from 'redux-form';
-import TextField from '../../components/render-fields/TextField';
-=======
 import { Field, reduxForm } from 'redux-form'
 import TextField from '../../components/render-fields/TextField'
 import {Container, LoginContent} from "../../styles/form/styled";
 import Grid from "material-ui/Grid";
->>>>>>> c1569815b5462480bd07c93fc9fb7066a1fb9e45
 
 class VerificationForm extends React.PureComponent {
 

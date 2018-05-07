@@ -51,7 +51,7 @@ class LoginForm extends React.PureComponent {
               <DefaultButton type="submit" loading={submitting} variant="raised" color="primary">
                 Login
               </DefaultButton>
-              <Link to="/register"><Button secondary fluid>Create an account</Button></Link>
+              <Link to="/register"><Button color="secondary">Create an account</Button></Link>
             </GridStyled>
           </Grid>
         </form>

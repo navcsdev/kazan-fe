@@ -11,11 +11,7 @@ export default {
 
   },
   effects: {
-<<<<<<< HEAD
-    async loginAsync(payload) {      
-=======
     async loginAsync(payload) {
->>>>>>> c1569815b5462480bd07c93fc9fb7066a1fb9e45
       const {username, password} = payload;
       const {isUserLoggedIn, setUsername} = dispatch.app;
       try {
