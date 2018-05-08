@@ -1,4 +1,5 @@
 import React from 'react';
+import { reducer as form } from 'redux-form';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -18,7 +19,10 @@ const history = createHistory();
 const store = init({
   models,
   redux: {
-    middlewares:[routerMiddleware(history)]
+    middlewares:[routerMiddleware(history)],
+    reducers: {
+      form
+    }
   }
 });
 

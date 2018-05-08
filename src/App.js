@@ -17,7 +17,7 @@ const pageList = [
 
 const App = () => (
   <div>
-    <AppMain>
+    {/* <AppMain> */}
       {/* <BodyPageStyled> */}
       <Switch>
         {
@@ -27,7 +27,7 @@ const App = () => (
         }
       </Switch>
       {/* </BodyPageStyled> */}
-    </AppMain>
+    {/* </AppMain> */}
     {/* <Footer /> */}
     {/* <Alert stack={{limit: 3}} effect="jelly"/> */}
   </div>

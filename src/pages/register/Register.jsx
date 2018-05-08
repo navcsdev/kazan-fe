@@ -6,11 +6,8 @@ const mapDispatch = ({ register: { registerAsync }}) => ({
   registerAsync
 });
 
-const mapState = ({register}) => ({register});
-
 class Register extends PureComponent {
   handleSubmit = (data) => {
-    console.log(data);
     return this.props.registerAsync(data);
   };
 
@@ -22,4 +19,3 @@ class Register extends PureComponent {
 }
 
 export default connect(undefined, mapDispatch)(Register);
-// export default connect(null, null)(Register);

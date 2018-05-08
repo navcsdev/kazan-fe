@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from 'material-ui/Button';
 import { Field, reduxForm } from 'redux-form'
 import TextField from '../../components/render-fields/TextField'
 import {Container, LoginContent} from "../../styles/form/styled";
 import Grid from "material-ui/Grid";
+import {Default as DefaultButton} from "../../styles/button";
 
 class VerificationForm extends React.PureComponent {
 
@@ -23,9 +23,10 @@ class VerificationForm extends React.PureComponent {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button type="submit" variant="raised" color="primary">
+                <DefaultButton type="submit" variant="raised" color="primary" loading={submitting}>
                   Verify
-                </Button>
+                </DefaultButton>
+                <span>{error}</span>
               </Grid>
             </Grid>
           </form>
