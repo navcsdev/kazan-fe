@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
-import Button from 'material-ui/Button';
-import { Field, reduxForm } from 'redux-form'
-import Grid from 'material-ui/Grid'
+import {Default as DefaultButton} from "../../styles/button";
+import { Field, reduxForm } from 'redux-form';
+import Grid from 'material-ui/Grid';
 import {Container, Error, GridStyled, LoginContent} from '../../styles/form/styled';
-import TextField from '../../components/render-fields/TextField'
+import TextField from '../../components/render-fields/TextField';
 
 class RegisterForm extends PureComponent {
 
   render() {
-    const {handleSubmit, error} = this.props;
+    const {handleSubmit, error, submitting} = this.props;
 
     return (
         <Container>
@@ -59,9 +59,9 @@ class RegisterForm extends PureComponent {
                   />
                 </Grid>
                 <GridStyled item xs={12}>
-                  <Button type="submit" variant="raised" color="primary">
+                  <DefaultButton type="submit" variant="raised" color="primary" loading={submitting}>
                     Register
-                  </Button>
+                  </DefaultButton>
                   {error && <Error>{error}</Error>}
                 </GridStyled>
               </Grid>

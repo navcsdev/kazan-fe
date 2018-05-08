@@ -12,25 +12,26 @@ export default {
         phoneNumber: '',
     },
     reducers: {
-        store: (state, payload) => state = payload
     },
     effects: {
-        async registerAsync(payload) {
-            const {username, email, password, telegramUsername, phoneNumber} = payload;
-            return await Auth.signUp({username, password, attributes: {
-                'email': email,
-                'phone_number': phoneNumber,
-                'nickname': telegramUsername
-            }})
-                .then(resp => {
-                    this.store(payload);
-                    dispatch.verification.setCredential({
-                        username,
-                        password
-                    });
-                    dispatch(push('/verification'))
-                })
-                .catch(err => {console.log(err); throw new SubmissionError({_error: err.message}) })
+      async registerAsync(payload) {
+        try {
+          const {username, email, password, telegramUsername, phoneNumber} = payload;
+          
+          await Auth.signUp({
+            username, 
+            password, 
+            attributes: {
+              'email': email,
+              'phone_number': phoneNumber,
+              'nickname': telegramUsername
+            }
+          });
+          dispatch(push('/verification'));
+        } catch (err) {
+          console.log(err); 
+          throw new SubmissionError({_error: err.message}) 
         }
+      }
     }
 }
