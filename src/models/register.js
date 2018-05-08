@@ -27,6 +27,10 @@ export default {
               'nickname': telegramUsername
             }
           });
+          dispatch.verification.setCredential({
+            username: username,
+            password: password
+          });
           dispatch(push('/verification'));
         } catch (err) {
           console.log(err); 
