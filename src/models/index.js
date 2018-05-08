@@ -1,4 +1,4 @@
-// export { default as app } from './app'
+export { default as app } from './app'
 // export { default as signUp } from './sign-up'
 export { default as verification } from './verification'
 export { default as login } from './login'

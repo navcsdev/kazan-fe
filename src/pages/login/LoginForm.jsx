@@ -1,24 +1,12 @@
 import React from 'react';
-import TextField from "material-ui/TextField";
 import Button from 'material-ui/Button';
+import {Default as DefaultButton} from "../../styles/button";
 import { Field, reduxForm } from 'redux-form'
 import {Container, LoginContent} from "../../styles/form/styled";
 import {GridStyled} from  "./styled"
-import Grid from "material-ui/es/Grid";
+import Grid from "material-ui/Grid";
 import Link from "react-router-dom/Link";
-
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => (
-  <TextField
-    label={label}
-    {...input}
-    {...custom}
-  />
-);
+import TextField from '../../components/render-fields/TextField';
 
 class LoginForm extends React.PureComponent {
 
@@ -33,7 +21,7 @@ class LoginForm extends React.PureComponent {
               <Field
                 fullWidth
                 name="username"
-                component={renderTextField}
+                component={TextField}
                 label="Username"
               />
             </Grid>
@@ -41,16 +29,17 @@ class LoginForm extends React.PureComponent {
               <Field
                 fullWidth
                 name="password"
-                component={renderTextField}
+                component={TextField}
                 label="Password"
                 type="password"
               />
             </Grid>
             <GridStyled item xs={12}>
-              <Button type="submit" variant="raised" color="primary">
+              <DefaultButton type="submit" loading={submitting} variant="raised" color="primary">
                 Login
-              </Button>
-              <Link to="/register"><Button secondary fluid>Create an account</Button></Link>
+              </DefaultButton>
+              <span>{error}</span>
+              <Link to="/register"><Button color="secondary">Create an account</Button></Link>
             </GridStyled>
           </Grid>
         </form>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Grid from "material-ui/Grid/index";
 
 const Container = styled.div`
     position: relative;
@@ -25,4 +26,15 @@ const LoginContent = styled.div`
   background-color: #fff;
 `;
 
-export {Container, LoginContent};
+const Error = styled.p`
+  color: #f44336;
+`;
+
+const GridStyled = styled(Grid)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  10px 0px 10px 12px;
+`;
+
+export {Container, LoginContent, Error, GridStyled};

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import LoginForm from './LoginForm'
+import LoginForm from './LoginForm';
 
 const mapDispatch = ({ login: { loginAsync }}) => ({
   loginAsync
