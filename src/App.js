@@ -14,7 +14,7 @@ const pageList = [
   { component: Register, path: '/register'},
   { component: Verification, path: '/verification' }
 ];
-
+ 
 const App = () => (
   <div>
     {/* <Header/> */}

@@ -39,7 +39,7 @@ class LoginForm extends React.PureComponent {
                 Login
               </DefaultButton>
               <span>{error}</span>
-              <Link to="/register"><Button color="secondary">Create an account</Button></Link>
+              <Link to="/register"><Button color="secondary">REGISTER</Button></Link>
             </GridStyled>
           </Grid>
         </form>
